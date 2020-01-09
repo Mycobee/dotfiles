@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/robertstringer/personal_work/stringer_works/app/views'
+let g:netrw_dirhist_5='/Users/robertstringer/personal_work/stringer_works/app'
+let g:netrw_dirhist_4='/Users/robertstringer/personal_work/stringer_works'
+let g:netrw_dirhist_3='/Users/robertstringer/personal_work/stringer_works/app/views'
+let g:netrw_dirhist_2='/Users/robertstringer/personal_work/stringer_works/app'
+let g:netrw_dirhist_1='/Users/robertstringer/personal_work/stringer_works'
+let g:netrw_dirhist_0='/Users/robertstringer/personal_work/stringer_works/app/views'
+let g:netrw_dirhist_9='/Users/robertstringer/personal_work/stringer_works/app/views/home'
+let g:netrw_dirhist_8='/Users/robertstringer/personal_work/stringer_works/app/views'
+let g:netrw_dirhist_7='/Users/robertstringer/personal_work/stringer_works/app/views/home'
