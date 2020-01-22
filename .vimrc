@@ -23,11 +23,16 @@ autocmd FileType ruby setlocal commentstring=#\ %s
 
 "######## Color Scheme stuffs
 set background=dark
-" solarized options 
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
+" solarized options, adjust per terminal
+let g:solarized_visibility = "medium"
+let g:solarized_contrast = "medium"
 colorscheme solarized
+
+" The below line is for macOS iterm with solarized in settings
 let g:solarized_termcolors = 16
+
+" Visit solarized plugin docs for 256 color options
+" lightline display at bottom of screen
 let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ }
