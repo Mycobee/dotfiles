@@ -6,30 +6,30 @@ filetype off
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/tpope/vim-rails.git'
 Plug 'tpope/vim-commentary'
-Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'sheerun/vim-polyglot'
 Plug 'vim-ruby/vim-ruby'
 Plug 'Shougo/neocomplete.vim'
 Plug 'dense-analysis/ale'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
-"####### NERD TREE COMMANDS 
 let mapleader = "\<Space>"
-"map <leader>t :NERDTreeToggle<CR>
-"map <leader>r :NERDTreeFind<CR>
-"autocmd BufWinEnter * NERDTreeFind
 
 "################## Commentary commands
 noremap \ :Commentary<CR>
 autocmd FileType ruby setlocal commentstring=#\ %s
 
 "######## Color Scheme stuffs
-colorscheme base16-solarized-dark
+set background=dark
+" solarized options 
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+colorscheme solarized
+let g:solarized_termcolors = 16
 let g:lightline = {
-      \ 'colorscheme': 'base16-solarized-dark',
+      \ 'colorscheme': 'solarized',
       \ }
 set laststatus=2
 highlight ALEWarning ctermbg=16
