@@ -1,8 +1,8 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
 function parse_git_branch {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
-#export PS1="\[\e[31m\]\u\[\e[m\]\w\\$ 
-export PS1="\[\033[31m\]mycobee: \[\033[0;34m\]\w \[\033[01;34m\]\$(parse_git_branch) \[\033[01;34m\]\n🐝>\[\e[0m\]"
+export PS1="\[\033[31m\]$USER: \[\033[0;34m\]\w \[\033[01;34m\]\$(parse_git_branch) \[\033[01;34m\]\n🐝>\[\e[0m\]"
 set -o vi
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH=/usr/local/bin:$PATH
@@ -34,5 +34,8 @@ alias dbs='rake db:seed'
 alias bi='bundle install'
 alias be='bundle exec'
 alias bu='bundle update'
-alias discourse_reset='bundle exec rails db:drop && bundle exec rails db:create && bundle exec rails db:migrate && bundle exec rake bort_setlist_topics_import:data --trace'
+alias vim='nvim'
+alias oldvim='vim'
 eval "$(rbenv init -)"
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
