@@ -38,3 +38,4 @@ alias vim='nvim'
 alias oldvim='vim'
 eval "$(rbenv init -)"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
