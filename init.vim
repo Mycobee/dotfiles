@@ -4,22 +4,25 @@ set nocompatible " disables old vi commands
 filetype off
 
 call plug#begin('~/.config/neovim/plugged')
-Plug 'https://github.com/tpope/vim-rails.git'
-Plug 'tpope/vim-commentary'
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'jremmen/vim-ripgrep'
-Plug 'vim-ruby/vim-ruby'
-Plug 'Shougo/neocomplete.vim'
-Plug 'dense-analysis/ale'
-Plug 'altercation/vim-colors-solarized'
-Plug 'ngmy/vim-rubocop'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'preservim/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
+  Plug 'https://github.com/tpope/vim-rails.git'
+  Plug 'tpope/vim-commentary'
+  Plug 'itchyny/lightline.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+  Plug 'jremmen/vim-ripgrep'
+  Plug 'vim-ruby/vim-ruby'
+  Plug 'Shougo/neocomplete.vim'
+  Plug 'dense-analysis/ale'
+  Plug 'altercation/vim-colors-solarized'
+  Plug 'ngmy/vim-rubocop'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-fugitive'
+  Plug 'preservim/nerdtree'
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'honza/vim-snippets'
+  Plug 'Pocco81/AutoSave.nvim'
 call plug#end()
 " figure out whitespace plugin
 
@@ -157,3 +160,48 @@ set updatetime=250
 set shortmess+=c " for CoC plugin
 set noshowmode " set that vim mode is hidden, to incorporate for lightline plugin
 let mapleader=" "
+
+" CoC config 
+" :CocInstall coc-pairs
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+    \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" :CocInstall coc-json coc-css coc-html coc-prettier coc-solargraph coc-sql coc-snippets 
+" gem install solargraph
+"
+"
+"" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+lua << EOF
+local autosave = require("autosave")
+
+autosave.setup(
+    {
+        enabled = true,
+        execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
+        events = {"InsertLeave", "TextChanged"},
+        conditions = {
+            exists = true,
+            filename_is_not = {},
+            filetype_is_not = {},
+            modifiable = true
+        },
+        write_all_buffers = false,
+        on_off_commands = true,
+        clean_command_line_interval = 0,
+        debounce_delay = 135
+    }
+)
+EOF
