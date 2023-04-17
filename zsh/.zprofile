@@ -1,5 +1,6 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Neovim
 export EDITOR=/opt/homebrew/bin/nvim
 
 #aliases
@@ -30,6 +31,8 @@ alias be='bundle exec'
 alias bu='bundle update'
 alias vim='nvim'
 alias oldvim='/usr/bin/vim'
+alias work='cd ~/work/'
+alias infra='cd ~/infra/'
 
 export LIBRARY_PATH="/opt/local/lib"
 export LD_LIBRARY_PATH="/opt/local/lib"
@@ -37,13 +40,13 @@ export LD_LIBRARY_PATHS="/opt/local/lib"
 export DYLD_LIBRARY_PATH="/opt/local/lib"
 export LDFLAGS='-L/opt/local/lib'
 export PATH="/opt/homebrew/opt/libtool/libexec/gnubin:$PATH"
+export PATH="~/.cargo/bin:$PATH"
 
-alias ec='edit-command-line'
-alias work='cd ~/work/'
-alias infra='cd ~/infra/'
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
+
+. "$HOME/.asdf/asdf.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
