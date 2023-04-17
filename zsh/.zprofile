@@ -1,11 +1,4 @@
-function parse_git_branch {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-
-setopt PROMPT_SUBST
-PROMPT_NEWLINE=$'\n'
-export PROMPT='%F{red}%n:%f %F{blue}%2~%f $(parse_git_branch)${PROMPT_NEWLINE}🐝>'
-
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export EDITOR=/opt/homebrew/bin/nvim
 
@@ -38,8 +31,6 @@ alias bu='bundle update'
 alias vim='nvim'
 alias oldvim='/usr/bin/vim'
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 export LIBRARY_PATH="/opt/local/lib"
 export LD_LIBRARY_PATH="/opt/local/lib"
 export LD_LIBRARY_PATHS="/opt/local/lib"
@@ -50,5 +41,9 @@ export PATH="/opt/homebrew/opt/libtool/libexec/gnubin:$PATH"
 alias ec='edit-command-line'
 alias work='cd ~/work/'
 alias infra='cd ~/infra/'
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
