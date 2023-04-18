@@ -21,3 +21,10 @@ Get this set up for Linux. Implement YADM. Add universal setup
 - [Homebrew](https://brew.sh)
 - [asdf](https://asdf-vm.com/guide/introduction.html) (node.js, npm, python latest, pip, ruby, bundler)
 - Rust and cargo via [rustup](https://www.rust-lang.org/tools/install)
+- Astrovim
+- Treesitter (with cargo)
+- lazygit (with homebrew)
+- go disk usage (`brew install -f gdu` and `brew link --overwrite gdu  # if you have coreutils installed as well`)
+- bottom (with cargo https://github.com/ClementTsang/bottom)
+
+

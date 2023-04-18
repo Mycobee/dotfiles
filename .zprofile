@@ -29,8 +29,8 @@ alias dbs='rake db:seed'
 alias bi='bundle install'
 alias be='bundle exec'
 alias bu='bundle update'
-alias vim='lvim'
-alias ovim='/usr/bin/vim'
+alias vim='nvim'
+alias oldvim='/usr/bin/vim'
 alias work='cd ~/work/'
 alias infra='cd ~/infra/'
 
@@ -40,8 +40,8 @@ export LD_LIBRARY_PATHS="/opt/local/lib"
 export DYLD_LIBRARY_PATH="/opt/local/lib"
 export LDFLAGS='-L/opt/local/lib'
 export PATH="/opt/homebrew/opt/libtool/libexec/gnubin:$PATH"
-export PATH="/Users/rob/.cargo/bin:$PATH"
-export PATH="/Users/rob/.local/bin:$PATH"
+export PATH="~/.cargo/bin:$PATH"
+export PATH="~/.local/bin:$PATH"
 
 
 # Edit line in vim with ctrl-e:
