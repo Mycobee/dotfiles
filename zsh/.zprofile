@@ -29,10 +29,12 @@ alias dbs='rake db:seed'
 alias bi='bundle install'
 alias be='bundle exec'
 alias bu='bundle update'
-alias vim='lvim'
+alias vim='nvim'
 alias ovim='/usr/bin/vim'
 alias work='cd ~/work/'
 alias infra='cd ~/infra/'
+alias lg='lazygit'
+alias cdf='cd $(find * -type d | fzf)'
 
 export LIBRARY_PATH="/opt/local/lib"
 export LD_LIBRARY_PATH="/opt/local/lib"
